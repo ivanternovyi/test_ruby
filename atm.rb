@@ -4,7 +4,8 @@ require_relative 'constants'
 
 class ATM
   def initialize
-    @data = YAML.load_file('config.yml')
+    @data = YAML.load_file(ARGV.first || 'config.yml')
+    ARGV.clear
     @user = welcome_menu
     choice_menu
   end
